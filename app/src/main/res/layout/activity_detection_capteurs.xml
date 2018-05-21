@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_dark"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/detection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="DETECTION DES CAPTEURS"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/presence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="P R E S E N C E S"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtPresence"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Capteurs Presences"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/background_light" />
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/absence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="A B S E N C E S"
+            android:textAlignment="viewEnd"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtAbsence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Capteurs Absences"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@android:color/background_light" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>

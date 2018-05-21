@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+        android:id="@+id/txtProximite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="casual"
+        android:text="Proximite"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imgProximite"
+        android:layout_width="match_parent"
+        android:layout_height="526dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/homerloin" />
+
+</LinearLayout>
