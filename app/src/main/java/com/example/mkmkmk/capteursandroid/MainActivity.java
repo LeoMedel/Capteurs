@@ -1,7 +1,13 @@
 package com.example.mkmkmk.capteursandroid;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -17,18 +23,51 @@ public class MainActivity extends AppCompatActivity {
     CardView card5;
     CardView card6;
 
+    CardView card7;
+    CardView card8;
+    CardView card9;
+    CardView card10;
+
+    private static final int PERMISSION_GPS = 1;
+
+
+    protected boolean shouldAskPermissions() {
+        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
+    }
+
+    @TargetApi(23)
+    protected void askPermissions() {
+        String[] permissions = {
+                "android.permission.ACCESS_COARSE_LOCATION",
+                "android.permission.ACCESS_FINE_LOCATION"
+        };
+        int requestCode = 200;
+        requestPermissions(permissions, requestCode);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        if (shouldAskPermissions()) {
+            askPermissions();
+        }
+
+        //TP 1
         card1 = (CardView) findViewById(R.id.cardSensor);
         card2 = (CardView) findViewById(R.id.cardDetection);
         card3 = (CardView) findViewById(R.id.cardAcelero);
         card4 = (CardView) findViewById(R.id.cardDirection);
         card5 = (CardView) findViewById(R.id.cardFlash);
         card6 = (CardView) findViewById(R.id.cardProximite);
+
+        // TP 2
+        card7 = (CardView) findViewById(R.id.cardGPS);
+        card8 = (CardView)  findViewById(R.id.cardExploitation);
+        card9 = (CardView) findViewById(R.id.cardExploitation2);
+        card10 = (CardView) findViewById(R.id.cardCooperation);
 
     }
 
@@ -99,4 +138,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Gyroscope.class);
         startActivity(intent);
     }
+
+
+
+
+    //  CARD 7
+    public void setCoordoneesGPS(View view)
+    {
+        Intent intent = new Intent(this, GPS.class);
+        startActivity(intent);
+    }
+
+
+
 }
