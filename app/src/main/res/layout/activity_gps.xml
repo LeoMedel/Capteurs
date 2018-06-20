@@ -6,35 +6,84 @@
     android:orientation="vertical">
 
 
-    <TextView
-        android:id="@+id/txt_Latitude"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:fontFamily="casual"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="L A T I T U D E"
-        android:textColor="@android:color/background_dark" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txt_Longitude"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:fontFamily="casual"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="L O N G I T U D E"
-        android:textColor="@android:color/background_dark" />
+        <TextView
+            android:id="@+id/txt_Latitude"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="L A T I T U D E"
+            android:textColor="@android:color/background_dark" />
 
-    <TextView
-        android:id="@+id/txtDistance"
+        <TextView
+            android:id="@+id/txtLastLatitude"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="LAST LATITUDE"
+            android:textColor="@android:color/background_dark" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:fontFamily="casual"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Distance avec la derniere ubication"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_Longitude"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="L O N G I T U D E"
+            android:textColor="@android:color/background_dark" />
+
+        <TextView
+            android:id="@+id/txtLastLongitude"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="LAST LONGITUDE"
+            android:textColor="@android:color/background_dark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDistance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="setDistance"
+            android:text="Distance Parcourue" />
+
+        <TextView
+            android:id="@+id/txtDistance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Distance"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+    </LinearLayout>
 </LinearLayout>
