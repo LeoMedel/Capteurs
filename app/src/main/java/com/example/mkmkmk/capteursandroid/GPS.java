@@ -6,6 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -25,7 +29,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
-public class GPS extends AppCompatActivity {
+public class GPS extends AppCompatActivity implements SensorEventListener {
 
 
     int count =0;
@@ -45,7 +49,9 @@ public class GPS extends AppCompatActivity {
     TextView txtLastLat;
     TextView txtLastLon;
     TextView lastUbication;
+    TextView txtStep;
     Button btnDistance;
+    int nombrePas =0;
 
     // The minimum distance to change updates in meters
     private static final long DISTANCE_METRES = 3; // 3 meters
@@ -64,6 +70,7 @@ public class GPS extends AppCompatActivity {
         txtLongitude = (TextView) findViewById(R.id.txt_Longitude);
         txtLastLat = (TextView) findViewById(R.id.txtLastLatitude);
         txtLastLon = (TextView) findViewById(R.id.txtLastLongitude);
+        txtStep = (TextView) findViewById(R.id.txtStepCounter);
         lastUbication = (TextView) findViewById(R.id.txtDistance);
         btnDistance = (Button) findViewById(R.id.btnDistance);
 
@@ -73,7 +80,33 @@ public class GPS extends AppCompatActivity {
         //startUbication();
         monUbication();
 
+
+        SensorManager mSensorManager;
+        Sensor stepSensor;
+
+        mSensorManager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
+
+        stepSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+
+        mSensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
     }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+
+        StringBuilder infoStep = new StringBuilder("STEP COUNTER ");
+        infoStep.append("\r\n");
+        infoStep.append("Value (Nombre des pas) "+sensorEvent.values[0]);
+
+        txtStep.setText(infoStep);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
+
 
     public void startUbication()
     {
@@ -175,6 +208,7 @@ public class GPS extends AppCompatActivity {
 
         lastUbication.setText(message.toString());
     }
+
 
 }
 
